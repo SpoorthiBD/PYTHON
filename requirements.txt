@@ -1,9 +1,10 @@
-python==3.7.0 and more ..
+python==3.7.*
 flask==2.0.3
 numpy==1.22.4
 pandas==1.4.3
 requests==2.28.1
-scitkit-learn==1.1.1
+scikit-learn==1.1.1
 matplotlib==3.5.2
-opencv==3.4.13.47
-transform==3.12
+opencv-python==3.4.13.47
+transformers==3.12.0
+
