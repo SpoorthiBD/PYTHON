@@ -129,5 +129,11 @@ def stop_webcam():
     except Exception as e:
         return jsonify({"success": False, "error": str(e)}), 500
 
+@app.route('/hello', methods=['GET'])
+def hello():
+    print("hello")  # Print to console
+    return "Hello, World!"  # Return a response
+
+
 if __name__ == '__main__':
     app.run(debug=True)
