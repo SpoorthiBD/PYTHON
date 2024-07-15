@@ -9,7 +9,7 @@ document.addEventListener('DOMContentLoaded', () => {
         button.addEventListener("click", () => {
             const param_path = button.parentNode.parentNode.getElementsByClassName("product-image")[0].src;
             const image_path = param_path.split("path=")[1]
-            open_video(image_path)
+            // open_video(image_path)
             // const srcPath = '/video_feed';
             // window.open.document.write('<iframe height="450"  allowTransparency="true" frameborder="0" scrolling="yes" style="width:100%;" src="'+srcPath+'" type= "text/javascript"></iframe>');
         })
@@ -49,32 +49,32 @@ document.addEventListener('DOMContentLoaded', () => {
         // });
     });
 
-    open_video = (pName) => {
-        const newWindow = window.open("/feed?pid=" + pName, "Capture Image", 'height=550,width=900');
-        if (window.focus) { newWindow.focus() }
-        return false;
-    }
+    // open_video = (pName) => {
+    //     const newWindow = window.open("/feed?pid=" + pName, "Capture Image", 'height=550,width=900');
+    //     if (window.focus) { newWindow.focus() }
+    //     return false;
+    // }
 });
-document.addEventListener('DOMContentLoaded', (event) => {
-    document.getElementById('stop-webcam').addEventListener('click', () => {
-      fetch('/stop_webcam', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json'
-        }
-      })
-      .then(response => response.json())
-      .then(data => {
-        if (data.success) {
-          alert('Webcam stopped successfully');
-        } else {
-          alert('Failed to stop webcam: ' + data.error);
-        }
-      })
-      .catch(error => {
-        console.error('Error:', error);
-        alert('Error stopping webcam');
-      });
-    });
-  });
+// document.addEventListener('DOMContentLoaded', (event) => {
+//     document.getElementById('stop-webcam').addEventListener('click', () => {
+//       fetch('/stop_webcam', {
+//         method: 'POST',
+//         headers: {
+//           'Content-Type': 'application/json'
+//         }
+//       })
+//       .then(response => response.json())
+//       .then(data => {
+//         if (data.success) {
+//           alert('Webcam stopped successfully');
+//         } else {
+//           alert('Failed to stop webcam: ' + data.error);
+//         }
+//       })
+//       .catch(error => {
+//         console.error('Error:', error);
+//         alert('Error stopping webcam');
+//       });
+//     });
+//   });
   
