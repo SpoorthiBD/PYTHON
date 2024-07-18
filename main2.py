@@ -12,15 +12,24 @@ app.config['UPLOAD_FOLDER'] = 'static/images'
 
 net = cv.dnn.readNetFromTensorflow("graph_opt.pb")  # weights
 
-cap = cv.VideoCapture(0)
-cap.set(cv.CAP_PROP_FPS, 10)
-cap.set(3, 800)
-cap.set(4, 800)
+# cap = cv.VideoCapture(0)
+# cap.set(cv.CAP_PROP_FPS, 10)
+# cap.set(3, 800)
+# cap.set(4, 800)
+
+# if not cap.isOpened():
+#     cap = cv.VideoCapture(1)
+# if not cap.isOpened():
+#     raise IOError("Cannot open webcam")
+
+# Open a connection to the virtual webcam
+cap = cv.VideoCapture('/dev/video0')
 
 if not cap.isOpened():
-    cap = cv.VideoCapture(1)
-if not cap.isOpened():
-    raise IOError("Cannot open webcam")
+    print("Error: Could not open video device")
+    exit()
+
+
 
 def process_frame(frame, tx=0, ty=0):
     # Example: Apply some processing to the frame (replace with your processing logic)
