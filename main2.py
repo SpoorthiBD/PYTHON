@@ -23,7 +23,7 @@ net = cv.dnn.readNetFromTensorflow("graph_opt.pb")  # weights
 #     raise IOError("Cannot open webcam")
 
 # Open a connection to the virtual webcam
-cap = cv.VideoCapture('/dev/video0')
+cap = cv.VideoCapture('/dev/video-1')
 
 if not cap.isOpened():
     print("Error: Could not open video device")

@@ -3,7 +3,7 @@ import sys
 
 def try_open_video_device():
     for i in range(10):  # Try the first 10 indices
-        cap = cv2.VideoCapture(i)
+        cap = cv2.VideoCapture(0)
         if cap.isOpened():
             print(f"Opened video device at /dev/video{i}")
             return cap
