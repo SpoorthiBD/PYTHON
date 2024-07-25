@@ -1,9 +1,19 @@
+import socket
 import sys
 from PyQt5.QtWidgets import QApplication, QVBoxLayout, QWidget
 from PyQt5.QtMultimedia import QCamera, QCameraInfo
 from PyQt5.QtMultimediaWidgets import QCameraViewfinder
 from PyQt5.QtCore import Qt
  
+
+def get_ip_address():
+    hostname = socket.gethostname()
+    ip_address = socket.gethostbyname(hostname)
+    return ip_address
+ 
+if __name__ == "__main__":
+    print("IP Address of the system:", get_ip_address())
+
 class CameraApp(QWidget):
     def __init__(self):
         super().__init__()
