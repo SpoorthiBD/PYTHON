@@ -1,4 +1,5 @@
 import os
+import socket
 import cv2 as cv
 import requests
 from io import BytesIO
@@ -12,22 +13,31 @@ app.config['UPLOAD_FOLDER'] = 'static/images'
 
 net = cv.dnn.readNetFromTensorflow("graph_opt.pb")  # weights
 
-# cap = cv.VideoCapture(0)
-# cap.set(cv.CAP_PROP_FPS, 10)
-# cap.set(3, 800)
-# cap.set(4, 800)
+def get_ip_address():
+    hostname = socket.gethostname()
+    ip_address = socket.gethostbyname(hostname)
+    return ip_address
 
-# if not cap.isOpened():
-#     cap = cv.VideoCapture(1)
-# if not cap.isOpened():
-#     raise IOError("Cannot open webcam")
+if __name__ == "__main__":
+    print("IP Address of the system:", get_ip_address())
 
-# Open a connection to the virtual webcam
-cap = cv.VideoCapture('/dev/video-1')
+
+cap = cv.VideoCapture(0)
+cap.set(cv.CAP_PROP_FPS, 10)
+cap.set(3, 800)
+cap.set(4, 800)
 
 if not cap.isOpened():
-    print("Error: Could not open video device")
-    exit()
+    cap = cv.VideoCapture(1)
+if not cap.isOpened():
+    raise IOError("Cannot open webcam")
+
+# Open a connection to the virtual webcam
+# cap = cv.VideoCapture('/dev/video-1')
+
+# if not cap.isOpened():
+#     print("Error: Could not open video device")
+#     exit()
 
 
 
@@ -144,5 +154,10 @@ def hello():
     return "Hello, World!"  # Return a response
 
 
+
+
+
 if __name__ == '__main__':
-    app.run(debug=True)
+    ip_address = get_ip_address()
+    app.run(host=ip_address, port=5000, debug=True)
+    # app.run(debug=True)
