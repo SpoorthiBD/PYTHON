@@ -32,15 +32,6 @@ if not cap.isOpened():
 if not cap.isOpened():
     raise IOError("Cannot open webcam")
 
-# Open a connection to the virtual webcam
-# cap = cv.VideoCapture('/dev/video-1')
-
-# if not cap.isOpened():
-#     print("Error: Could not open video device")
-#     exit()
-
-
-
 def process_frame(frame, tx=0, ty=0):
     # Example: Apply some processing to the frame (replace with your processing logic)
     return frame
